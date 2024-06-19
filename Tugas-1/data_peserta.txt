@@ -1,0 +1,6 @@
+Data Peserta Super Bootcamp Laravel Vue Development
+1. Nama: Muhammad Dariaz Zidane
+2. Email: dariazzidane@gmail.com
+3. Sistem Operasi yang digunakan: Windows 10
+4. Akun Gitlab/Github: github.com/muhammaddariazzidane
+5. Akun Telegram: https://t.me/dzmdz07
