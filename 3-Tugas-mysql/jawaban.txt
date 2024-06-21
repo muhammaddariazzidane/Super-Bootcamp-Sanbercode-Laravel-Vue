@@ -1,0 +1,108 @@
+CREATE TABLE user (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE profile (
+    id INT PRIMARY KEY,
+    age INT,
+    biodata TEXT,
+    address TEXT,
+    FOREIGN KEY (id) REFERENCES user(id)
+);
+
+CREATE TABLE genre (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE movie (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    summary TEXT,
+    year INT,
+    poster VARCHAR(255)
+);
+
+CREATE TABLE movie_genre (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    movie_id INT,
+    genre_id INT,
+    FOREIGN KEY (movie_id) REFERENCES movie(id),
+    FOREIGN KEY (genre_id) REFERENCES genre(id)
+);
+
+CREATE TABLE cast (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    age INT,
+    biodata TEXT
+);
+
+CREATE TABLE role (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE movie_cast (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    movie_id INT,
+    cast_id INT,
+    role_id INT,
+    FOREIGN KEY (movie_id) REFERENCES movie(id),
+    FOREIGN KEY (cast_id) REFERENCES `cast`(id),
+    FOREIGN KEY (role_id) REFERENCES role(id)
+);
+
+CREATE TABLE review (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    rating INT,
+    critics TEXT
+);
+
+CREATE TABLE user_review (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    review_id INT,
+    FOREIGN KEY (user_id) REFERENCES user(id),
+    FOREIGN KEY (review_id) REFERENCES review(id)
+);
+
+CREATE TABLE movie_review (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    movie_id INT,
+    review_id INT,
+    FOREIGN KEY (movie_id) REFERENCES movie(id),
+    FOREIGN KEY (review_id) REFERENCES review(id)
+);
+
+INSERT INTO genre (name) VALUES ('Action'), ('Drama');
+
+INSERT INTO movie (title, summary, year, poster) 
+VALUES 
+('Action Movie 1', 'Summary of Action Movie 1', 2021, 'poster1.jpg'),
+('Action Movie 2', 'Summary of Action Movie 2', 2022, 'poster2.jpg'),
+('Drama Movie 1', 'Summary of Drama Movie 1', 2020, 'poster3.jpg'),
+('Drama Movie 2', 'Summary of Drama Movie 2', 2019, 'poster4.jpg'),
+('Drama Movie 3', 'Summary of Drama Movie 3', 2023, 'poster5.jpg');
+
+INSERT INTO movie_genre (movie_id, genre_id)
+VALUES 
+((SELECT id FROM movie WHERE title = 'Action Movie 1'), (SELECT id FROM genre WHERE name = 'Action')),
+((SELECT id FROM movie WHERE title = 'Action Movie 2'), (SELECT id FROM genre WHERE name = 'Action')),
+((SELECT id FROM movie WHERE title = 'Drama Movie 1'), (SELECT id FROM genre WHERE name = 'Drama')),
+((SELECT id FROM movie WHERE title = 'Drama Movie 2'), (SELECT id FROM genre WHERE name = 'Drama')),
+((SELECT id FROM movie WHERE title = 'Drama Movie 3'), (SELECT id FROM genre WHERE name = 'Drama'));
+
+SELECT m.* 
+FROM movie m
+JOIN movie_genre mg ON m.id = mg.movie_id
+JOIN genre g ON mg.genre_id = g.id
+WHERE g.name = 'Action';
+
+SELECT m.*, g.name as genre_name 
+FROM movie m
+JOIN movie_genre mg ON m.id = mg.movie_id
+JOIN genre g ON mg.genre_id = g.id;
