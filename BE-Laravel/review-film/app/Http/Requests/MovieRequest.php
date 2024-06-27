@@ -24,7 +24,8 @@ class MovieRequest extends FormRequest
         return [
             'title' => 'required|string|max:255',
             'summary' => 'required|string',
-            'year' => 'required|date',
+            'year' => 'required|string|max:4',
+            // 'year' => 'required|date',
             'poster' => 'nullable|mimes:jpg,png',
             'genre_id' => 'required'
         ];
@@ -37,7 +38,7 @@ class MovieRequest extends FormRequest
             'title.max' => 'Title must not exceed 255 characters.',
             'summary.required' => 'Summary is required.',
             'year.required' => 'Year is required.',
-            'year.date' => 'Year must be a valid date.',
+            'year.max' => 'Year must not exceed 4 characters.',
             'poster.mimes' => 'Poster must be a file of type: jpg, png.',
             'genre_id.required' => 'Genre Id is required.'
         ];
