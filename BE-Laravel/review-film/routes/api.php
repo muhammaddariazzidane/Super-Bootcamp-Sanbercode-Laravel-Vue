@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\CastController;
 use App\Http\Controllers\API\GenreController;
 use App\Http\Controllers\API\MovieController;
@@ -25,4 +26,15 @@ Route::prefix('v1')->group(function () {
     Route::apiResource('movie', MovieController::class);
     Route::apiResource('cast', CastController::class);
     Route::apiResource('genre', GenreController::class);
+
+    Route::prefix('auth')->group(function () {
+        Route::post('register', [AuthController::class, 'register']);
+        Route::post('login', [AuthController::class, 'login']);
+        Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:api');
+    });
+
+    Route::middleware('auth:api')->group(function () {
+        Route::get('me', [AuthController::class, 'me']);
+        Route::post('update-user', [AuthController::class, 'updateUser']);
+    });
 });
