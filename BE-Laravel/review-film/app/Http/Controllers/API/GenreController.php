@@ -9,11 +9,16 @@ use Illuminate\Http\Request;
 
 class GenreController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth:api', 'isAdmin'])->except(['index', 'show']);
+    }
+
     public function index()
     {
         $genres = Genre::all();
         return response()->json([
-            'message' => 'tampil data berhasil',
+            'message' => 'Berhasil Tampil semua genre',
             'data' => $genres
         ]);
     }
@@ -23,7 +28,7 @@ class GenreController extends Controller
         Genre::create($request->all());
 
         return response()->json([
-            'message' => 'Tambah Genre berhasil'
+            'message' => 'Berhasil tambah genre'
         ]);
     }
 
@@ -39,7 +44,7 @@ class GenreController extends Controller
         }
 
         return response()->json([
-            'message' => 'Detail Data Genre',
+            'message' => 'Berhasil Detail data dengan id ' . $id,
             'data' => $genre
         ]);
     }
@@ -58,7 +63,7 @@ class GenreController extends Controller
 
         $genre->save();
         return response()->json([
-            'message' => 'Update Genre berhasil'
+            'message' => 'Berhasil melakukan update Genre id : ' . $id
         ]);
     }
 
@@ -75,7 +80,7 @@ class GenreController extends Controller
         Genre::destroy($id);
 
         return response()->json([
-            'message' => 'berhasil Menghapus Genre'
+            'message' => "data dengan id : {$id} berhasil terhapus"
         ]);
     }
 }

@@ -25,9 +25,8 @@ class MovieRequest extends FormRequest
             'title' => 'required|string|max:255',
             'summary' => 'required|string',
             'year' => 'required|string|max:4',
-            // 'year' => 'required|date',
             'poster' => 'nullable|mimes:jpg,png',
-            'genre_id' => 'required'
+            'genre_id' => 'required|exists:genres,id'
         ];
     }
 

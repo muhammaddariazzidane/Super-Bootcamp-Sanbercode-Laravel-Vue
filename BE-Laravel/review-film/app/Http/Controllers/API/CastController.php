@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class CastController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth:api', 'isAdmin'])->except(['index', 'show']);
+    }
+
     public function index()
     {
         $casts = Cast::all();
@@ -30,7 +35,7 @@ class CastController extends Controller
 
     public function show(string $id)
     {
-        $cast = Cast::find($id);
+        $cast = Cast::with('list_movie')->find($id);
 
         if (!$cast) {
             return response()->json([
@@ -62,7 +67,7 @@ class CastController extends Controller
         $cast->save();
 
         return response()->json([
-            'message' => 'Update Cast berhasil'
+            'message' => "Berhasil melakukan update Cast id : {$id}"
         ], 200);
     }
 

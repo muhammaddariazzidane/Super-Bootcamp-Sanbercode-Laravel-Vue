@@ -5,19 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Carbon\Carbon;
 
-class Role extends Model
+class OtpCode extends Model
 {
     use HasFactory, HasUuids;
 
     protected $keyType = 'string';
     public $incrementing = false;
-    protected $fillable = ['name'];
+    protected $table = 'otp_codes';
 
-    public function users(): HasMany
-    {
-        return $this->hasMany(User::class);
-    }
+    protected $fillable = ['otp', 'valid_until', 'user_id'];
 }

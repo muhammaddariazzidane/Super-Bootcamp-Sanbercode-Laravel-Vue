@@ -13,9 +13,15 @@ class MovieController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+        $this->middleware(['auth:api', 'isAdmin'])->except(['index', 'show']);
+    }
+
     public function index()
     {
         $movies = Movie::latest()->get();
+
         return response()->json([
             'message' => 'tampil data berhasil',
             'data' => $movies
@@ -40,7 +46,8 @@ class MovieController extends Controller
         Movie::create($data);
 
         return response()->json([
-            'message' => 'Tambah Movie berhasil'
+            'message' => 'Tambah Movie berhasil',
+            'data' => $data
         ], 201);
     }
 
@@ -49,7 +56,7 @@ class MovieController extends Controller
      */
     public function show(string $id)
     {
-        $movie = Movie::find($id);
+        $movie = Movie::with(['genre', 'list_cast', 'list_reviews'])->find($id);
 
         if (!$movie) return response()->json(['message' => 'Movie not found'], 404);
 
