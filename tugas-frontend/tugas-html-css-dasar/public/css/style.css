@@ -1,0 +1,269 @@
+* {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url('../img/pattern.jpg');
+  min-height: 100vh;
+}
+nav {
+  background-color: white;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.logo-nav {
+  height: 4rem;
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav ul li a {
+  display: block;
+  color: darkblue;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  border-radius: 0.6rem;
+}
+
+nav ul li a:hover {
+  background-color: darkblue;
+  color: white;
+  transition: all 0.5s ease-in-out;
+  border-radius: 2rem;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 1.4rem;
+}
+
+.container-process {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 1rem;
+  position: relative;
+  min-height: 57vh;
+}
+.container-process h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.container {
+  max-width: 1080px;
+  margin: 4rem auto;
+  padding: 1rem;
+  background-color: white;
+  position: relative;
+}
+.container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 2px;
+  margin: 0.6rem;
+}
+
+.title {
+  font-size: large;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  margin-top: 3.5rem;
+}
+.subtitle {
+  margin: 0;
+  margin-bottom: 7px;
+}
+.data-peserta {
+  margin-top: 20px;
+}
+.data-peserta h3 {
+  margin-bottom: 1rem;
+}
+
+.data-peserta ul li {
+  margin-bottom: 5px;
+  margin-left: 2rem;
+}
+.cara-belajar ol li {
+  margin-bottom: 5px;
+  margin-left: 2rem;
+}
+.cara-belajar {
+  margin-top: 20px;
+}
+.cara-belajar h3 {
+  margin-bottom: 1rem;
+}
+
+.form-title {
+  margin-bottom: 1rem;
+}
+.form-subtitle {
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.form-field {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type='text'],
+textarea,
+select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+textarea {
+  resize: vertical;
+  height: 80px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: darkblue;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(0, 0, 104);
+}
+
+.form-field:last-child {
+  margin-bottom: 0;
+}
+
+.container-radio {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+input[type='radio'] {
+  background-color: gray;
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+input[type='radio']:checked {
+  background-color: blue;
+}
+
+input[type='radio']:before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  transition: all 0.1s;
+  background-color: #fff;
+  transform: scale(0);
+}
+
+input[type='radio']:checked::before {
+  transform: scale(1.5);
+  background-color: white;
+}
+#card-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+@media (max-width: 1200px) {
+  #card-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  #card-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  #card-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  #card-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  border-radius: 1rem;
+  width: 100%;
+  padding: 1rem;
+  cursor: pointer;
+  background: darkblue;
+  color: white;
+  box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 3%);
+  position: relative;
+}
+
+.card > * + * {
+  margin-top: 1.1em;
+}
+
+.card .card-content {
+  font-size: 0.86rem;
+}
+
+.card .card-title {
+  padding: 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.card:hover {
+  opacity: 80%;
+  transition: all 0.5s ease-in-out;
+}

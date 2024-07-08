@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register Akun Baru</title>
+    <link rel="stylesheet" href="public/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <img src="public/img/logo.png" alt="logo sanbercode" class="logo-nav" />
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="form.html">Register</a></li>
+          <li><a href="article.html">Article</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section class="container">
+      <h1 class="form-title">Register Akun Baru!</h1>
+      <p class="form-subtitle">Isilah form dibawah ini</p>
+      <form method="POST" action="process.html">
+        <div class="form-field">
+          <label for="firstName">First Name : </label>
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            placeholder="First name"
+          />
+        </div>
+        <div class="form-field">
+          <label for="lastName">Last Name :</label>
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            placeholder="Last name"
+          />
+        </div>
+        <div class="form-field">
+          <label> Gender : </label>
+          <div class="container-radio">
+            <input
+              class="input"
+              type="radio"
+              id="male"
+              name="gender"
+              value="male"
+            />
+            <label for="male">Male</label>
+            <input
+              class="input"
+              type="radio"
+              id="female"
+              name="gender"
+              value="female"
+            />
+            <label for="female">Female</label>
+            <input
+              class="input"
+              type="radio"
+              id="other"
+              name="gender"
+              value="other"
+            />
+            <label for="other">Other</label>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="nationality">Nationality :</label>
+          <select id="nationality" name="nationality">
+            <option value="indonesian">Indonesian</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="focus">Sedang Fokus Belajar :</label>
+          <select id="focus" name="focus">
+            <option value="reactjs">Reactjs</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="languageSpoken">Language Spoken:</label>
+          <div class="container-radio">
+            <input
+              type="radio"
+              id="english"
+              name="languageSpoken"
+              value="english"
+            />
+            <label for="english">English</label>
+            <input
+              type="radio"
+              id="indonesian"
+              name="languageSpoken"
+              value="indonesian"
+            />
+            <label for="indonesian">Indonesian</label>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="description">Deskripsi Diri Saya :</label>
+          <textarea
+            id="description"
+            name="description"
+            placeholder="description"
+          ></textarea>
+        </div>
+        <button type="submit">register</button>
+      </form>
+    </section>
+    <footer>
+      <p>copyright © 2023 by Sanbercode</p>
+    </footer>
+  </body>
+</html>
