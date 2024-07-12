@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VueJS Course</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 0.25rem solid gray;
+        padding: 0.5rem;
+        text-align: center;
+      }
+      th {
+        background-color: #4529e6;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Address</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="person in people" :key="person.name">
+            <td>{{ person.name }}</td>
+            <td>{{ person.age }}</td>
+            <td>{{ person.address }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const { ref, createApp } = Vue;
+
+      createApp({
+        setup() {
+          const people = ref([
+            { name: 'Rezky', age: 26, address: 'makassar' },
+            { name: 'Andi', age: 18, address: 'Jakarta' },
+            { name: 'Budi', age: 33, address: 'bali' },
+          ]);
+          return { people };
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

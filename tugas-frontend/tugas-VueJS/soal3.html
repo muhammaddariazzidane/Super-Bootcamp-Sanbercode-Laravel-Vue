@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VueJS Course</title>
+    <style>
+      label {
+        font-weight: bold;
+      }
+      p {
+        font-style: italic;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 10rem;
+        gap: 1rem;
+      }
+      form button[type='submit'] {
+        background-color: #4529e6;
+        color: white;
+        border: none;
+        padding: 0.5rem;
+        cursor: pointer;
+      }
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <ul>
+        <li v-if="errorMessages.username" class="error">{{ errorMessages.username }}</li>
+        <li v-if="errorMessages.password" class="error">{{ errorMessages.password }}</li>
+      </ul>
+      <form @submit.prevent="handleSubmit">
+        <label for="username"
+          >username
+          <input type="text" id="username" v-model="username" placeholder="username" />
+        </label>
+        <label for="password"
+          >password
+          <input type="password" id="password" v-model="password" placeholder="password" />
+        </label>
+        <button type="submit">Submit</button>
+      </form>
+      <h2>Output</h2>
+      <ul v-if="successMessage">
+        <li><strong>Username :</strong> {{ output.username }}</li>
+        <li><strong>Password :</strong> {{ output.password }}</li>
+      </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const { ref, createApp } = Vue;
+
+      createApp({
+        setup() {
+          const username = ref('');
+          const password = ref('');
+          const errorMessages = ref({ username: '', password: '' });
+          const successMessage = ref(false);
+          const output = ref({ username: '', password: '' });
+
+          const validateInput = () => {
+            errorMessages.value.username = '';
+            errorMessages.value.password = '';
+            if (username.value.length < 9) errorMessages.value.username = 'Username harus lebih dari 8 karakter';
+            if (password.value.length < 9) errorMessages.value.password = 'Password harus lebih dari 8 karakter';
+          };
+
+          const handleSubmit = () => {
+            validateInput();
+            if (!errorMessages.value.username && !errorMessages.value.password) {
+              successMessage.value = true;
+              output.value = {
+                username: username.value,
+                password: password.value,
+              };
+              username.value = '';
+              password.value = '';
+            } else successMessage.value = false;
+          };
+
+          return { username, password, errorMessages, successMessage, output, handleSubmit };
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>
