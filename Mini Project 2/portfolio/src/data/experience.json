@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "title": "Pengembang Front-end Web dan Back-end - Studi Independen Bersertifikat (SIB) Cycle 5",
+    "backgroundImage": "https://dariazzidane.vercel.app/img/kampus-merdeka-x-dicoding.png",
+    "image": "https://dariazzidane.vercel.app/img/kampus-merdeka.png",
+    "company": "Kampus Merdeka",
+    "period": "Aug 2023 - Des 2023",
+    "description": "As a participant of Front-end Web and Back-end learning Path at Dicoding Indonesia, which is to learn more about various things related to Front-end Web and Back-end such as",
+    "skills": [
+      {
+        "id": 1,
+        "name": "Clean Code"
+      },
+      {
+        "id": 2,
+        "name": "Stress & Time Management"
+      },
+      {
+        "id": 3,
+        "name": "Teamwork"
+      },
+      {
+        "id": 4,
+        "name": "HTML & CSS"
+      },
+      {
+        "id": 5,
+        "name": "Javascript"
+      },
+      {
+        "id": 6,
+        "name": "PWA"
+      },
+      {
+        "id": 7,
+        "name": "API"
+      },
+      {
+        "id": 8,
+        "name": "Mobile First Approach"
+      },
+      {
+        "id": 9,
+        "name": "Accessibility"
+      },
+      {
+        "id": 10,
+        "name": "Integration & End to end testing"
+      },
+      {
+        "id": 11,
+        "name": "Deployment with CI/CD"
+      },
+      {
+        "id": 12,
+        "name": "Web Performance"
+      }
+    ],
+    "certificates": [
+      {
+        "id": 1,
+        "value": "https://dariazzidane.vercel.app/img/certifications/fe-expert.png"
+      },
+      {
+        "id": 2,
+        "value": "https://dariazzidane.vercel.app/img/certifications/fe-fundamental.png"
+      },
+      {
+        "id": 3,
+        "value": "https://dariazzidane.vercel.app/img/certifications/be-pemula.png"
+      },
+      {
+        "id": 4,
+        "value": "https://dariazzidane.vercel.app/img/certifications/fe-pemula.png"
+      },
+      {
+        "id": 5,
+        "value": "https://dariazzidane.vercel.app/img/certifications/dasarjs.png"
+      },
+      {
+        "id": 6,
+        "value": "https://dariazzidane.vercel.app/img/certifications/dasarweb.png"
+      },
+      {
+        "id": 7,
+        "value": "https://dariazzidane.vercel.app/img/certifications/git.png"
+      },
+      {
+        "id": 8,
+        "value": "https://dariazzidane.vercel.app/img/certifications/karir.png"
+      },
+      {
+        "id": 9,
+        "value": "https://dariazzidane.vercel.app/img/certifications/dasarpengembang.png"
+      },
+      {
+        "id": 10,
+        "value": "https://dariazzidane.vercel.app/img/certifications/logic.png"
+      },
+      {
+        "id": 11,
+        "value": "https://dariazzidane.vercel.app/img/certifications/sib.png"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Fasilitator React - Level Menengah",
+    "backgroundImage": "https://dariazzidane.vercel.app/img/idcamp2023-banner.png",
+    "image": "https://dariazzidane.vercel.app/img/idcamp.png",
+    "company": "Indosat Ooredoo Hutchison Digital Camp",
+    "period": "Des 2023 - Feb 2024",
+    "description": "As a Fasilitator, my role was pivotal in guiding and mentoring participants of IDCamp 2023 through the intricacies of the React learning path at an intermediate level. My primary objective was to ensure that each participant not only comprehended but also mastered the concepts, enabling them to successfully complete the course with proficiency and within the stipulated timeframe. Through a combination of hands-on guidance, constructive feedback, and fostering a collaborative learning environment, I aimed to empower participants to excel in their React development skills. The experience was not just about conveying knowledge but also about cultivating a supportive and conducive atmosphere for optimal learning outcomes.",
+    "skills": [],
+    "certificates": [
+      {
+        "id": 11,
+        "value": "https://dariazzidane.vercel.app/img/certifications/idcamp2023-certificate.png"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Bangkit Academy 2024 By Google, GoTo, Traveloka - Cloud Computing Learning Path",
+    "backgroundImage": "https://dariazzidane.vercel.app/img/bangkit-banner.png",
+    "image": "https://dariazzidane.vercel.app/img/bangkit.webp",
+    "company": "Dicoding Indonesia ",
+    "period": "Feb 2024 - Present",
+    "description": "Comming soon...",
+    "skills": [],
+    "certificates": []
+  }
+]
