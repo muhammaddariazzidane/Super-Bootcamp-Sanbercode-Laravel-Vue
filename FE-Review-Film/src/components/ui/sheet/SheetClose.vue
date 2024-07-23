@@ -1,7 +1,7 @@
 <script setup>
-import { DialogClose } from "radix-vue";
+import { DialogClose } from 'radix-vue'
 
-const props = defineProps();
+const props = defineProps()
 </script>
 
 <template>

@@ -1,6 +1,6 @@
 <script setup>
-import { DrawerRoot } from "vaul-vue";
-import { useForwardPropsEmits } from "radix-vue";
+import { DrawerRoot } from 'vaul-vue'
+import { useForwardPropsEmits } from 'radix-vue'
 
 const props = defineProps({
   activeSnapPoint: { type: [Number, String, null], required: false },
@@ -15,18 +15,12 @@ const props = defineProps({
   nested: { type: Boolean, required: false },
   direction: { type: String, required: false },
   snapPoints: { type: Array, required: false },
-  fadeFromIndex: { type: null, required: false },
-});
+  fadeFromIndex: { type: null, required: false }
+})
 
-const emits = defineEmits([
-  "drag",
-  "release",
-  "close",
-  "update:open",
-  "update:activeSnapPoint",
-]);
+const emits = defineEmits(['drag', 'release', 'close', 'update:open', 'update:activeSnapPoint'])
 
-const forwarded = useForwardPropsEmits(props, emits);
+const forwarded = useForwardPropsEmits(props, emits)
 </script>
 
 <template>

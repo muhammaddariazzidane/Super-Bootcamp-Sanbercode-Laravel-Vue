@@ -4,7 +4,7 @@ import Sidebar from '@/components/ui/navigation/Sidebar.vue'
 import NavbarLink from '@/components/ui/navigation/NavbarLink.vue'
 import DarkModeToggle from '@/components/ui/dark-mode/dark-mode-toggle.vue'
 import { Icon } from '@iconify/vue'
-import { Button } from '@/components/ui/button'
+import ButtonLogout from '@/components/ui/navigation/ButtonLogout.vue'
 </script>
 
 <template>
@@ -20,7 +20,7 @@ import { Button } from '@/components/ui/button'
       </div>
       <div class="flex gap-3">
         <DarkModeToggle />
-        <Button variant="destructive" class="sm:block hidden"> Logout </Button>
+        <ButtonLogout :style-button="'sm:block hidden'" />
         <Sidebar />
       </div>
     </nav>

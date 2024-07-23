@@ -11,7 +11,7 @@ import { useToggleSheetStore } from '@/stores/useToggleSheetStore'
 import NavbarLink from '@/components/ui/navigation/NavbarLink.vue'
 import { storeToRefs } from 'pinia'
 import { Icon } from '@iconify/vue'
-import { Button } from '@/components/ui/button'
+import ButtonLogout from '@/components/ui/navigation/ButtonLogout.vue'
 
 const store = useToggleSheetStore()
 const { open } = storeToRefs(store)
@@ -31,7 +31,7 @@ const { setIsOpen } = store
         </SheetDescription>
       </SheetHeader>
       <div class="mt-auto px-3">
-        <Button variant="destructive"> Logout </Button>
+        <ButtonLogout />
       </div>
     </SheetContent>
   </Sheet>

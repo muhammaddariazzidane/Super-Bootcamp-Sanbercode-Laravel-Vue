@@ -16,6 +16,10 @@ export const navigationLinks = [
     name: 'Genre'
   },
   {
+    path: '/profile',
+    name: 'Profile'
+  },
+  {
     path: '/login',
     name: 'Login'
   },
