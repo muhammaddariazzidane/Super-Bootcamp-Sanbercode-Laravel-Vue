@@ -95,7 +95,8 @@ class AuthController extends Controller
 
         if (!$token = auth()->attempt($credentials)) return response()->json(['message' => 'Email atau password salah'], 401);
 
-        $user = auth()->user();
+        $user = auth()->user()->load('role');
+
 
         return response()->json([
             'message' => 'user berhasil login',
@@ -113,7 +114,8 @@ class AuthController extends Controller
 
     public function me()
     {
-        $user = auth()->user();
+        $user = auth()->user()->load('role');
+
 
         return response()->json([
             "message" =>  "Profile berhasil ditampilkan",
@@ -123,7 +125,8 @@ class AuthController extends Controller
 
     public function updateUser(Request $request)
     {
-        $user = auth()->user();
+        $user = auth()->user()->load('role');
+
 
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',

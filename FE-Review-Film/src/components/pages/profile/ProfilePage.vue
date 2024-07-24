@@ -7,31 +7,47 @@ import {
   CardHeader,
   CardTitle
 } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Button } from '@/components/ui/button'
+import { reactive } from 'vue'
 import { useAuthStore } from '@/stores/useAuthStore'
-import { ref } from 'vue'
-
+import Textarea from '@/components/ui/textarea/Textarea.vue'
 const authStore = useAuthStore()
-const name = ref(authStore.user.name)
 
-const handleUpdateProfile = () => authStore.updateProfile(name.value)
+const userIputs = reactive({
+  age: '',
+  biodata: '',
+  address: ''
+})
+
+const handleUpdateProfile = () => {
+  authStore.updateOrCreateProfile(userIputs)
+}
 </script>
 
 <template>
-  <main class="max-w-5xl mx-auto px-4 py-10">
-    <form @submit.prevent="handleUpdateProfile">
-      <Card class="max-w-sm mx-auto">
+  <main class="max-w-xl mx-auto px-4 py-10">
+    <form class="w-full col-span-2" @submit.prevent="handleUpdateProfile">
+      <Card>
         <CardHeader>
-          <CardTitle>Update Profile</CardTitle>
-          <CardDescription> Update your profile information </CardDescription>
+          <CardTitle>Update or Create Profile</CardTitle>
+          <CardDescription> Update or Create your profile information </CardDescription>
         </CardHeader>
         <CardContent>
           <div class="grid items-center w-full gap-4">
             <div class="flex flex-col space-y-1.5">
-              <Label for="name">Name</Label>
-              <Input v-model="name" id="name" placeholder="Your new name" />
+              <Label for="age">Age</Label>
+              <Input type="number" v-model="userIputs.age" id="age" placeholder="Your age" />
+              <Label for="biodata">Biodata</Label>
+              <Input
+                type="text"
+                v-model="userIputs.biodata"
+                id="biodata"
+                placeholder="Your biodata"
+              />
+              <Label for="address">Address</Label>
+              <Textarea v-model="userIputs.address" id="address" placeholder="Your address" />
             </div>
           </div>
         </CardContent>

@@ -66,8 +66,14 @@ const router = createRouter({
           beforeEnter: requireAuthenticatedAndEmailVerified
         },
         {
+          path: 'update-user',
+          name: 'Update User',
+          component: () => import('@/views/UpdateUserView.vue'),
+          beforeEnter: requireAuthenticatedAndEmailVerified
+        },
+        {
           path: 'verify-account',
-          name: 'VerifyAccount',
+          name: 'Verify Account',
           component: () => import('@/views/VerifyAccountView.vue'),
           beforeEnter: requireEmailNotVerified
         }

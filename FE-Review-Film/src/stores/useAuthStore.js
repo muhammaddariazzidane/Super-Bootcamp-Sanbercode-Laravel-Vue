@@ -130,7 +130,7 @@ export const useAuthStore = defineStore('useAuthStore', () => {
     }
   }
 
-  const updateProfile = async (name) => {
+  const updateUser = async (name) => {
     try {
       const response = await api.post(
         '/update-user',
@@ -156,6 +156,24 @@ export const useAuthStore = defineStore('useAuthStore', () => {
       console.log(error.message)
     }
   }
+
+  const updateOrCreateProfile = async (data) => {
+    try {
+      const response = await api.post('/profile', data, {
+        headers: {
+          Authorization: `Bearer ${token.value}`
+        }
+      })
+      messages.value.success = response.data.message
+    } catch (error) {
+      if (error.response && error.response.data) {
+        messages.value.error = error.response.data
+      }
+      messages.value.error = error.message
+      console.log(error)
+    }
+  }
+
   return {
     token,
     user,
@@ -165,6 +183,7 @@ export const useAuthStore = defineStore('useAuthStore', () => {
     generateOtpCode,
     verifyOtpCode,
     messages,
-    updateProfile
+    updateUser,
+    updateOrCreateProfile
   }
 })

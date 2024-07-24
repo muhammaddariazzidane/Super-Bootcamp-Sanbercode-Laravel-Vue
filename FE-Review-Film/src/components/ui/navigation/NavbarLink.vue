@@ -22,7 +22,7 @@ const filteredLinks = computed(() => {
     )
   else
     return navigationLinks.filter((link) =>
-      ['Home', 'Film', 'Cast', 'Genre', 'Profile'].includes(link.name)
+      ['Home', 'Film', 'Cast', 'Genre', 'Update User', 'Profile'].includes(link.name)
     )
 })
 </script>

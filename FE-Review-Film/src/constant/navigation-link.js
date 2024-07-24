@@ -16,6 +16,10 @@ export const navigationLinks = [
     name: 'Genre'
   },
   {
+    path: '/update-user',
+    name: 'Update User'
+  },
+  {
     path: '/profile',
     name: 'Profile'
   },
