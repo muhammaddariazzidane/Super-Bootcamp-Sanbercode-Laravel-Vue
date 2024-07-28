@@ -12,10 +12,12 @@ import NavbarLink from '@/components/ui/navigation/NavbarLink.vue'
 import { storeToRefs } from 'pinia'
 import { Icon } from '@iconify/vue'
 import ButtonLogout from '@/components/ui/navigation/ButtonLogout.vue'
+import { useRoute } from 'vue-router'
 
 const store = useToggleSheetStore()
 const { open } = storeToRefs(store)
 const { setIsOpen } = store
+const route = useRoute()
 </script>
 
 <template>
@@ -23,10 +25,10 @@ const { setIsOpen } = store
     <SheetTrigger class="sm:hidden" @click="() => setIsOpen(true)">
       <Icon icon="radix-icons:drag-handle-horizontal" class="h-6 w-6" />
     </SheetTrigger>
-    <SheetContent class="flex flex-col sm:hidden bg-primary text-white">
+    <SheetContent :class="route.path.startsWith('/dashboard') ? 'bg-secondary': 'bg-primary'" class="flex flex-col sm:hidden text-white">
       <SheetHeader>
-        <SheetTitle class="text-start ps-3 text-white">Review Film</SheetTitle>
-        <SheetDescription class="flex flex-col items-start py-4 gap-2 text-white">
+        <SheetTitle class="text-start ps-3 text-white" :class="route.path.startsWith('/dashboard') && 'dark:text-white text-black'" >Review Film</SheetTitle>
+        <SheetDescription class="flex flex-col items-start py-4 gap-2 text-white" :class="route.path.startsWith('/dashboard') && 'dark:text-white text-black'" >
           <NavbarLink />
         </SheetDescription>
       </SheetHeader>

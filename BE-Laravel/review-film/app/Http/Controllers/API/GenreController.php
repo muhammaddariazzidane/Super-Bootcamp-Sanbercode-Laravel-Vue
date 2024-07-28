@@ -29,12 +29,12 @@ class GenreController extends Controller
 
         return response()->json([
             'message' => 'Berhasil tambah genre'
-        ]);
+        ], 201);
     }
 
     public function show(string $id)
     {
-        $genre = Genre::find($id);
+        $genre = Genre::find($id)->load('list_movies');
 
         if (!$genre) {
             return response()->json([

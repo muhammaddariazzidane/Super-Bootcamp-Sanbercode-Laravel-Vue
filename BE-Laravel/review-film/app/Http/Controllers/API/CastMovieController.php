@@ -19,7 +19,7 @@ class CastMovieController extends Controller
 
     public function index()
     {
-        $castMovies = CastMovie::all();
+        $castMovies = CastMovie::all()->load(['cast', 'movie']);
 
         return response()->json([
             'message' => 'Berhasil Tampil cast Movie',

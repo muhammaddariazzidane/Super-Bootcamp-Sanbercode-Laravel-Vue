@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('name', 255);
             $table->uuid('cast_id');
             $table->uuid('movie_id');
-            $table->foreign('cast_id')->references('id')->on('casts');
-            $table->foreign('movie_id')->references('id')->on('movie');
+            $table->foreign('cast_id')->references('id')->on('casts')->onDelete('cascade');
+            $table->foreign('movie_id')->references('id')->on('movie')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('summary');
             $table->string('poster', 255)->nullable();
             $table->uuid('genre_id');
-            $table->foreign('genre_id')->references('id')->on('genres');
+            $table->foreign('genre_id')->references('id')->on('genres')->onDelete('cascade');
             $table->string('year', 4);
             $table->timestamps();
         });

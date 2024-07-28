@@ -20,7 +20,7 @@ class MovieController extends Controller
 
     public function index()
     {
-        $movies = Movie::latest()->get();
+        $movies = Movie::latest()->get()->load('genre');
 
         return response()->json([
             'message' => 'tampil data berhasil',

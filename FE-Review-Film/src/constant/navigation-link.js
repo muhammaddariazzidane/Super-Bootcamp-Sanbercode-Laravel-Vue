@@ -1,38 +1,55 @@
 export const navigationLinks = [
   {
+    name: 'Home',
     path: '/',
-    name: 'Home'
   },
   {
+    name: 'Film',
     path: '/film',
-    name: 'Film'
   },
   {
+    name: 'Cast',
     path: '/cast',
-    name: 'Cast'
   },
   {
+    name: 'Film Cast',
+    path: '/film-cast',
+  },
+  {
+    name: 'Genre',
     path: '/genre',
-    name: 'Genre'
   },
   {
+    name: 'Update User',
     path: '/update-user',
-    name: 'Update User'
   },
   {
+    name: 'Profile',
     path: '/profile',
-    name: 'Profile'
   },
   {
+    name: 'Login',
     path: '/login',
-    name: 'Login'
   },
   {
+    name: 'Register',
     path: '/register',
-    name: 'Register'
   },
   {
+    name: 'Verify Account',
     path: '/verify-account',
-    name: 'Verify Account'
+  },
+  {
+    name: 'Dashboard Film',
+    path: '/dashboard/film',
   }
+]
+
+export const dashboardLinks = [
+  { name: 'Home', path: '/' },
+  { name: 'Dashboard Film', path: '/dashboard/film' },
+  { name: 'Dashboard Cast', path: '/dashboard/cast' },
+  { name: 'Dashboard Genre', path: '/dashboard/genre' },
+  { name: 'Dashboard Role', path: '/dashboard/role' },
+  { name: 'Dashboard Film Cast', path: '/dashboard/film-cast' }
 ]

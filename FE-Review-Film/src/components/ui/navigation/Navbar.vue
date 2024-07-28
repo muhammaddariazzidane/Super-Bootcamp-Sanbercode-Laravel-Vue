@@ -5,10 +5,12 @@ import NavbarLink from '@/components/ui/navigation/NavbarLink.vue'
 import DarkModeToggle from '@/components/ui/dark-mode/dark-mode-toggle.vue'
 import { Icon } from '@iconify/vue'
 import ButtonLogout from '@/components/ui/navigation/ButtonLogout.vue'
+import { useRoute } from 'vue-router'
+const route = useRoute()
 </script>
 
 <template>
-  <header class="w-full sticky top-0 z-50 left-0 right-0 py-4 px-3 bg-primary text-white shadow">
+  <header :class="route.path.startsWith('/dashboard') && 'bg-secondary dark:text-white text-black'" class="w-full sticky top-0 z-50 left-0 right-0 py-4 px-3 bg-primary text-white shadow">
     <nav class="flex justify-between gap-4 items-center flex-wrap">
       <RouterLink to="/" class="flex items-center gap-x-2">
         <Icon icon="streamline-emojis:nerd-face" class="h-6 w-6" />

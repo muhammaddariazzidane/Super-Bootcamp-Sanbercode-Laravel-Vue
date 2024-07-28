@@ -27,6 +27,6 @@ class ReviewController extends Controller
             'rating' => $request->rating,
         ]);
 
-        return response()->json(['message' => 'Review berhasil dibuat/diubah', 'data' => $review]);
+        return response()->json(['message' => 'Review berhasil dibuat/diubah', 'data' => $review], 201);
     }
 }

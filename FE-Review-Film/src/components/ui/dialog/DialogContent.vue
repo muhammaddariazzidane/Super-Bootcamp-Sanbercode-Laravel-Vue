@@ -9,6 +9,7 @@ import {
 } from 'radix-vue'
 import { Cross2Icon } from '@radix-icons/vue'
 import { cn } from '@/lib/utils'
+import { useToggleSheetStore } from '@/stores/useToggleSheetStore'
 
 const props = defineProps({
   forceMount: { type: Boolean, required: false },
@@ -32,13 +33,14 @@ const delegatedProps = computed(() => {
 
   return delegated
 })
-
+const { setIsModalOpen } = useToggleSheetStore()
 const forwarded = useForwardPropsEmits(delegatedProps, emits)
 </script>
 
 <template>
   <DialogPortal>
     <DialogOverlay
+      @click="setIsModalOpen(false)"
       class="fixed inset-0 z-50 bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"
     />
     <DialogContent
@@ -53,6 +55,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
       <slot />
 
       <DialogClose
+        @click="setIsModalOpen(false)"
         class="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
       >
         <Cross2Icon class="w-4 h-4" />
