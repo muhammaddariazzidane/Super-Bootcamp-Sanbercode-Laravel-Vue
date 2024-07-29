@@ -23,24 +23,24 @@ onMounted(async () => {
 <template>
   <main class="max-w-5xl mx-auto">
     <h1 v-if="isLoading">Loading...</h1>
-    <Card class="cursor-pointer shadow-none border-0">
+    <Card v-else class="cursor-pointer shadow-none border-0">
       <CardContent>
         <CardHeader>
           <CardTitle>{{ filmCast.name }}</CardTitle>
-          <img :src="filmCast.movie.poster" :alt="filmCast.title" class="rounded-md mt-2" />
+          <img :src="filmCast.movie?.poster" :alt="filmCast.title" class="rounded-md mt-2" />
         </CardHeader>
         <CardFooter class="flex flex-col items-start justify-end gap-3">
           <p class="text-base font-medium">Movie Detail:</p>
           <ul class="list-disc px-4">
-            <li>Title: {{ filmCast.movie.title }}</li>
-            <li>Summary: {{ filmCast.movie.summary }}</li>
-            <li>Year: {{ filmCast.movie.year }}</li>
+            <li>Title: {{ filmCast.movie?.title }}</li>
+            <li>Summary: {{ filmCast.movie?.summary }}</li>
+            <li>Year: {{ filmCast.movie?.year }}</li>
           </ul>
           <p class="text-base font-medium">Cast Detail:</p>
           <ul class="list-disc px-4">
-            <li>Name: {{ filmCast.cast.name }}</li>
-            <li>Age: {{ filmCast.cast.age }}</li>
-            <li>Bio: {{ filmCast.cast.bio }}</li>
+            <li>Name: {{ filmCast.cast?.name }}</li>
+            <li>Age: {{ filmCast.cast?.age }}</li>
+            <li>Bio: {{ filmCast.cast?.bio }}</li>
           </ul>
         </CardFooter>
       </CardContent>

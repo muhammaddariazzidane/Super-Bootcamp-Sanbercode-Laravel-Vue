@@ -18,9 +18,9 @@ export const useFilmCastStore = defineStore(
       setLoading(true)
       try {
         const response = await api.get('/cast-movie')
-        if (response.status === 200) {
+        // if (response.status === 200) {
           filmCasts.value = response.data.data
-        }
+        // }
       } catch (error) {
         console.error('Failed to fetch cast movie:', error)
       } finally {
@@ -31,9 +31,7 @@ export const useFilmCastStore = defineStore(
       setLoading(true)
       try {
         const response = await api.get(`/cast-movie/${id}`)
-        if (response.status === 200) {
-          filmCast.value = response.data.data
-        }
+        filmCast.value = response.data.data
       } catch (error) {
         console.error('Failed to fetch cast movie detail:', error)
       } finally {

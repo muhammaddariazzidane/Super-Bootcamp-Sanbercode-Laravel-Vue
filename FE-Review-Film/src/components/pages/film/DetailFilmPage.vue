@@ -45,7 +45,7 @@ const handleReview = async () => {
         <CardDescription>{{ film.summary }}</CardDescription>
       </CardContent>
       <CardFooter class="flex flex-col items-start justify-end gap-3">
-        <p class="text-sm" v-if="film.genre">Genre: {{ film.genre.name }}</p>
+        <p class="text-sm" v-if="film.genre">Genre: {{ film.genre?.name }}</p>
         <p class="text-sm">Year: {{ film.year }}</p>
         <h1 class="py-2 font-medium">List Cast</h1>
         <ul class="list-disc px-4" v-for="cast in film.list_cast" :key="cast.id">
